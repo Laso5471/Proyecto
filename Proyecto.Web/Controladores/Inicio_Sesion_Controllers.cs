@@ -13,6 +13,7 @@ namespace Proyecto.Web.Controladores
             }
             catch(Exception ex)
             {
+                //comentario
                 throw ex;
             }
         }

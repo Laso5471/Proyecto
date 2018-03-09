@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2027
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Proyecto.Web", "Proyecto.Web\Proyecto.Web.csproj", "{A5BE8FC8-CEC3-4695-B8A2-15B763BAA139}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Proyecto.logica", "Proyecto.logica\Proyecto.logica.csproj", "{21A60ABB-586F-4FE5-9E07-A3667E943831}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A5BE8FC8-CEC3-4695-B8A2-15B763BAA139}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5BE8FC8-CEC3-4695-B8A2-15B763BAA139}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5BE8FC8-CEC3-4695-B8A2-15B763BAA139}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5BE8FC8-CEC3-4695-B8A2-15B763BAA139}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21A60ABB-586F-4FE5-9E07-A3667E943831}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21A60ABB-586F-4FE5-9E07-A3667E943831}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21A60ABB-586F-4FE5-9E07-A3667E943831}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21A60ABB-586F-4FE5-9E07-A3667E943831}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8C206F08-382C-412E-BC00-EFF7DF9536DD}
+	EndGlobalSection
+EndGlobal

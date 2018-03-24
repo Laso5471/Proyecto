@@ -42,7 +42,7 @@
                     <div class="form-group">
                         <div class="form-check">
                             <label class="form-check-label"/>
-                                <asp:Checkbox ID ="CheckRecordar" runat="server" text="Recordar Contraseña" />
+                                <asp:Checkbox ID ="CheckRecordar" runat="server" text="Recordar Usuario" />
                         </div>
                     </div>
                     <asp:Button ID="btnIniciarSesion" runat="server" CssClass="btn btn-primary btn-block" Text="Iniciar sesion" OnClick="btnIniciarSesion_Click" />

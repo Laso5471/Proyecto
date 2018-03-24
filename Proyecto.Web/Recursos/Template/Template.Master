@@ -67,8 +67,14 @@
                 <ul class="navbar-nav ml-auto">
 
                     <li class="nav-item">
-                        <a class="nav-link" href="../Logica/Login.aspx">
-                            <i class="fa fa-fw fa-sign-out"></i>Cerrar sesion</a>
+                        <asp:LinkButton CssClass="nav-link"
+                            runat="server"
+                            ID="lblSalir" OnClick="lblSalir_Click"> <i class="fa fa-fw fa-sign-out"></i>Cerrar sesion
+
+                        </asp:LinkButton>
+                       
+                        
+                       
                     </li>
                 </ul>
 

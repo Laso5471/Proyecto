@@ -11,7 +11,14 @@ namespace Proyecto.Web.Views.index
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            string stLogin = string.Empty;
 
+            if (Request.QueryString["Parametro1"] != null)
+                stLogin = Request.QueryString["Parametro1"].ToString();
+            if (Session["sesionLogin"] != null)//validar
+                stLogin = Request.QueryString["sesionLogin"].ToString();//recepcion
+            else
+                Response.Redirect("../Login/Login.aspx");
         }
     }
 }

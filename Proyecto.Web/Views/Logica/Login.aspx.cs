@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Web;
+using static System.Net.WebRequestMethods;
 
 namespace Proyecto.Web.Views.Logica
 {
@@ -6,7 +8,12 @@ namespace Proyecto.Web.Views.Logica
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if(!IsPostBack)
+            {
+                if (Request.Cookies["Email"] != null)
+                    Textusuario.Text = Request.Cookies["Email"].Value.ToString();
 
+            }
             //AQUI PUEDO PROGARAMAR LO QUE SE VA A A EJECUTAR A PENAS INGRESE A LA PAGINA 
 
         }
@@ -30,7 +37,31 @@ namespace Proyecto.Web.Views.Logica
                 Controladores.Inicio_Sesion_Controllers obcliniciar_sesion_controllers = new Controladores.Inicio_Sesion_Controllers();
                 bool blBandera = obcliniciar_sesion_controllers.Get_Validar_Usuaurio(obclUsuario);
 
-                if (blBandera) Response.Redirect("../index/Index.aspx");
+                if (blBandera) 
+                {
+                    if (CheckRecordar.Checked)
+                    {
+                        HttpCookie cookieEmail = new HttpCookie("Email", Textusuario.Text);
+                        cookieEmail.Expires = DateTime.Now.AddDays(2);
+                        Response.Cookies.Add(cookieEmail);
+                    }else
+                    {
+                        HttpCookie cookieEmail = new HttpCookie("Email", Textusuario.Text);
+                        cookieEmail.Expires = DateTime.Now.AddDays(-1);
+                        Response.Cookies.Add(cookieEmail);
+                    }
+                    //definir sesion
+                    Session["sesionLogin"] = Textusuario.Text;
+                    Session["sesionPasword"] = TextContraseña.Text;
+
+                    //borrar
+                    //Session.RemoveAll();
+                    //Session.Remove("sesionLogin");//nombre variable a remover
+
+                    
+                    Response.Redirect("../index/Index.aspx?Parametro1=" + Textusuario.Text + "&Parametro2=" + TextContraseña.Text);
+                }
+                
                 else throw new Exception("Usuario o Contraseña incorrectos");
 
                // ClientScript.RegisterStartupScript(this.GetType(), "Mensaje", "<script> swal ('Ingresando!', 'El inicio de sesion fue exitoso!', 'success') </script>");

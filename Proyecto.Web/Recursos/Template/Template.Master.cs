@@ -13,5 +13,11 @@ namespace Proyecto.Web.Recursos.Template
         {
 
         }
+
+        protected void lblSalir_Click(object sender, EventArgs e)
+        {
+            Session.RemoveAll();
+            Response.Redirect("../../Views/Login/Login.aspx");
+        }
     }
 }

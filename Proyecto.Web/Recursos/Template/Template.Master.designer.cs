@@ -13,13 +13,22 @@ namespace Proyecto.Web.Recursos.Template {
     public partial class Site1 {
         
         /// <summary>
-        /// Control lblSalir.
+        /// Control lblusuario.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lblSalir;
+        protected global::System.Web.UI.WebControls.Label lblusuario;
+        
+        /// <summary>
+        /// Control btnSalir.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSalir;
         
         /// <summary>
         /// Control Contenedor.

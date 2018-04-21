@@ -46,6 +46,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=18.1.0.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <HintPath>..\packages\AjaxControlToolkit.18.1.0\lib\net40\AjaxControlToolkit.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
@@ -69,6 +72,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <Content Include="Recursos\image\26907533_1582615035151287_2406810582404342863_n.jpg" />
+    <Content Include="Recursos\image\30421531_1678561612223295_1252871999_n.png" />
+    <Content Include="Recursos\image\ImageFondo.JPEG" />
     <Content Include="vendor\bootstrap\css\bootstrap.css.map" />
     <Content Include="vendor\bootstrap\css\bootstrap.min.css.map" />
     <Content Include="vendor\bootstrap\js\bootstrap.bundle.js.map" />
@@ -158,16 +164,20 @@
     <Content Include="vendor\jquery\jquery.slim.js" />
     <Content Include="vendor\jquery\jquery.slim.min.js" />
     <Content Include="Views\index\Index.aspx" />
-    <Content Include="Views\index\Informacion_Personal.aspx" />
-    <Content Include="Views\index\Nutricion.aspx" />
-    <Content Include="Views\index\Rutinas.aspx" />
-    <Content Include="Views\index\Seguimiento.aspx" />
+    <Content Include="Views\Informacion Personal\Informacion_Personal.aspx" />
+    <Content Include="Views\Nutricion\Nutricion.aspx" />
+    <Content Include="Views\Recuperar Contraseña\RecuperarContraseña.aspx" />
+    <Content Include="Views\Rutinas\Rutinas.aspx" />
+    <Content Include="Views\Seguimiento\Seguimiento.aspx" />
     <Content Include="Views\Logica\Login.aspx" />
     <Content Include="Views\Registrar\Registrar.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controladores\Consulta_Usuario_Controllers.cs" />
     <Compile Include="Controladores\Inicio_Sesion_Controllers.cs" />
+    <Compile Include="Controladores\RecuperarContraseñaControllers.cs" />
+    <Compile Include="Controladores\RegistrarseControllers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Recursos\Template\Template.Master.cs">
       <DependentUpon>Template.Master</DependentUpon>
@@ -183,32 +193,39 @@
     <Compile Include="Views\index\Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\index\Informacion_Personal.aspx.cs">
+    <Compile Include="Views\Informacion Personal\Informacion_Personal.aspx.cs">
       <DependentUpon>Informacion_Personal.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\index\Informacion_Personal.aspx.designer.cs">
+    <Compile Include="Views\Informacion Personal\Informacion_Personal.aspx.designer.cs">
       <DependentUpon>Informacion_Personal.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\index\Nutricion.aspx.cs">
+    <Compile Include="Views\Nutricion\Nutricion.aspx.cs">
       <DependentUpon>Nutricion.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\index\Nutricion.aspx.designer.cs">
+    <Compile Include="Views\Nutricion\Nutricion.aspx.designer.cs">
       <DependentUpon>Nutricion.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\index\Rutinas.aspx.cs">
+    <Compile Include="Views\Recuperar Contraseña\RecuperarContraseña.aspx.cs">
+      <DependentUpon>RecuperarContraseña.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Recuperar Contraseña\RecuperarContraseña.aspx.designer.cs">
+      <DependentUpon>RecuperarContraseña.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Rutinas\Rutinas.aspx.cs">
       <DependentUpon>Rutinas.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\index\Rutinas.aspx.designer.cs">
+    <Compile Include="Views\Rutinas\Rutinas.aspx.designer.cs">
       <DependentUpon>Rutinas.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\index\Seguimiento.aspx.cs">
+    <Compile Include="Views\Seguimiento\Seguimiento.aspx.cs">
       <DependentUpon>Seguimiento.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\index\Seguimiento.aspx.designer.cs">
+    <Compile Include="Views\Seguimiento\Seguimiento.aspx.designer.cs">
       <DependentUpon>Seguimiento.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Logica\Login.aspx.cs">
@@ -226,7 +243,10 @@
       <DependentUpon>Registrar.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Imagenes\" />
+    <Folder Include="Temporales\" />
+  </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>

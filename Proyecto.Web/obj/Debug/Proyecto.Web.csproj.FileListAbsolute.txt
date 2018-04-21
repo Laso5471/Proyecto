@@ -9,3 +9,4 @@ C:\Users\luiso\source\repos\Proyecto\Proyecto.Web\obj\Debug\Proyecto.Web.dll
 C:\Users\luiso\source\repos\Proyecto\Proyecto.Web\obj\Debug\Proyecto.Web.pdb
 C:\Users\luiso\source\repos\Proyecto\Proyecto.Web\bin\Proyecto.logica.dll
 C:\Users\luiso\source\repos\Proyecto\Proyecto.Web\bin\Proyecto.logica.pdb
+C:\Users\luiso\source\repos\Proyecto\Proyecto.Web\bin\AjaxControlToolkit.dll

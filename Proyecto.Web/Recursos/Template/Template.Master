@@ -24,8 +24,12 @@
 
     <!-- Custom scripts for all pages-->
     <script src="../../js/sb-admin.min.js"></script>
-    
-</head>
+
+                         <script src="../../Js/sweetalert.min.js" type="text/javascript"></script>
+    <link href="../../css/sweetalert.css" rel="stylesheet" type="text/css" />
+
+
+</head >
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
 
     <form runat="server">
@@ -39,25 +43,25 @@
                 <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
 
                     <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-                        <a class="nav-link" href="../../Views/index/Informacion_Personal.aspx">
+                        <a class="nav-link" href="../../Views/Informacion Personal/Informacion_Personal.aspx">
                             <i class="fa fa-fw fa-info-circle"></i>
                             <span class="nav-link-text">Informacion personal</span>
                         </a>
                     </li>
                     <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-                        <a class="nav-link" href="../../Views/index/Rutinas.aspx">
+                        <a class="nav-link" href="../../Views/Rutinas/Rutinas.aspx">
                             <i class="fa fa-fw fa-paste"></i>
                             <span class="nav-link-text">Rutinas</span>
                         </a>
                     </li>
                     <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-                        <a class="nav-link" href="../../Views/index/Nutricion.aspx">
+                        <a class="nav-link" href="../../Views/Nutricion/Nutricion.aspx">
                             <i class="fa fa-fw fa-apple"></i>
                             <span class="nav-link-text">Nutricion</span>
                         </a>
                     </li>
                     <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-                        <a class="nav-link" href="../../Views/index/Seguimiento.aspx">
+                        <a class="nav-link" href="../../Views/Seguimiento/Seguimiento.aspx"
                             <i class="fa fa-fw fa-shield"></i>
                             <span class="nav-link-text">Seguimiento</span>
                         </a>
@@ -65,16 +69,15 @@
 
                 </ul>
                 <ul class="navbar-nav ml-auto">
-
                     <li class="nav-item">
-                        <asp:LinkButton CssClass="nav-link"
-                            runat="server"
-                            ID="lblSalir" OnClick="lblSalir_Click"> <i class="fa fa-fw fa-sign-out"></i>Cerrar sesion
+                        <asp:Label runat="server" ID="lblusuario" CssClass="btn btn-primary"></asp:Label>
+                    </li>
+                    <li class="nav-item">
 
-                        </asp:LinkButton>
-                       
-                        
-                       
+                        <%--<asp:LinkButton runat="server" ID="lblSalir" OnClick="lblSalir_Click1">
+                             <i class="fa fa-fw fa-sign-out"></i>Cerrar sesion
+                        </asp:LinkButton>--%>
+                        <asp:Button runat="server" ID="btnSalir" CssClass="btn btn-danger" Text="Cerrar sesion" OnClick="btnSalir_Click" />
                     </li>
                 </ul>
 
@@ -83,6 +86,9 @@
         <div class="content-wrapper">
             <div class="container-fluid">
                 <asp:ContentPlaceHolder runat="server" ID="Contenedor">
+
+    <div class="container">
+
                 </asp:ContentPlaceHolder>
             </div>
             <!-- /.container-fluid-->

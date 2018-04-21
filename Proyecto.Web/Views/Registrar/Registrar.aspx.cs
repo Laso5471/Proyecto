@@ -1,5 +1,5 @@
 ﻿using System;
-
+using System.IO;
 
 namespace Proyecto.Web.Views.Registrar
 {
@@ -13,33 +13,56 @@ namespace Proyecto.Web.Views.Registrar
 
         protected void btnRegistrar_Click(object sender, EventArgs e)
         {
+
             try
             {
-                string stMensaje = string.Empty;
-                if (string.IsNullOrEmpty(TextNombres.Text)) stMensaje += "Ingrese nombres,";
-                if (string.IsNullOrEmpty(TextApellidos.Text)) stMensaje += "Ingrese apellidos,";
-                if (string.IsNullOrEmpty(TextUsuario.Text)) stMensaje += "Ingrese usuario,";
-                if (string.IsNullOrEmpty(TextFechaNacimiento.Text)) stMensaje += "Ingrese fecha de nacimiento ,";
-                if (string.IsNullOrEmpty(TextContraseña1.Text)) stMensaje += "Ingrese contraseñas,";
-                if (string.IsNullOrEmpty(TextCorreo.Text)) stMensaje += "Ingrese correos,";
-                if (string.IsNullOrEmpty(Textpeso.Text)) stMensaje += "Ingrese peso,";
-                if (string.IsNullOrEmpty(Textestatura.Text)) stMensaje += "Ingrese estatura,";
-                if (string.IsNullOrEmpty(TextListaSexo.Text)) stMensaje += "Ingrese sexo,";
+                Controladores.RegistrarseControllers obRegistrarseController = new Controladores.RegistrarseControllers();
 
+                //VALIDAMOS LA SELECCION DE UNA IMAGEN
+                if (fuImagen.HasFile)
+                {
+                    if (!Path.GetExtension(fuImagen.FileName).Equals(".jpg"))
+                        throw new Exception("Solo se admiten formatos .JPG");
 
-                if (!string.IsNullOrEmpty(stMensaje)) throw new Exception(stMensaje.TrimEnd(','));
+                    string stRuta = Server.MapPath(@"~\Temporales\") + fuImagen.FileName;//RUTA TEMPORAL
+                    fuImagen.PostedFile.SaveAs(stRuta);//GUARDANDO EL ARCHIVO DENTRO DEL PROYECTO
 
-                ClientScript.RegisterStartupScript(this.GetType(), "Mensaje", "<script> swal ('Ingresando!', 'El registro fue exitoso!', 'success') </script>");
+                    string stRutaDestino = Server.MapPath(@"~\Imagenes\") + TextUsuario.Text + Path.GetExtension(fuImagen.FileName);//RUTA DESTINO
 
+                    if (File.Exists(stRutaDestino))
+                    {
+                        File.SetAttributes(stRutaDestino, FileAttributes.Normal);
+                        File.Delete(stRutaDestino);
+                    }
+
+                    File.Copy(stRuta, stRutaDestino);
+                    File.SetAttributes(stRuta, FileAttributes.Normal);
+                    File.Delete(stRuta);
+
+                    logica.Modelos.ClaseInformacionPersonal obclsUsuarios = new logica.Modelos.ClaseInformacionPersonal
+                    {
+                        USUARIO_REG = TextUsuario.Text,
+                        CONTRASEÑA_REG = TextContraseña1.Text,
+                        NOMBRES_REG = TextNombres.Text,
+                        APELLIDOS_REG = TextApellidos.Text,
+                        FECHA_DE_NACIMIENTO = TextFechaNacimiento.Text,
+                        SEXO_ID = TextListaSexo.Text,
+                        CORREO_REG = TextCorreo.Text,
+                        CONFIRMACION_CORREO = TextConfirmeCorreo.Text,
+                        PESO_REG = Textpeso.Text,
+                        TALLA_REG = Textestatura.Text,
+                        CONFIRMAR_CONTRASEÑA_REG = TextContraseña2.Text,
+                        IMAGEN_REG = stRutaDestino
+                    };
+
+                    ClientScript.RegisterStartupScript(this.GetType(), "mensaje", "<script> swal('Mensaje!', '" + obRegistrarseController.setRegistrarController(obclsUsuarios, 1) + "!', 'success') </script>");
+                }
             }
             catch (Exception ex)
             {
-                ClientScript.RegisterStartupScript(this.GetType(), "mensaje", "<script> swal('Error al registrarse!', '" + ex.Message + "!', 'error') </script>");
+                ClientScript.RegisterStartupScript(this.GetType(), "mensaje", "<script> swal('Error!', '" + ex.Message + "!', 'error') </script>");
             }
-        }
 
-        protected void listaSexo_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
         }
     }
